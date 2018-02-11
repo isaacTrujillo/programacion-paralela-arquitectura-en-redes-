@@ -1,0 +1,35 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ast (2.4.0)
+    awesome_print (1.8.0)
+    colorize (0.8.1)
+    cute_logger (0.1.9)
+      awesome_print (~> 1)
+      colorize (~> 0.8.1)
+      utf8_converter (~> 0.1)
+    parallel (1.12.1)
+    parser (2.4.0.2)
+      ast (~> 2.3)
+    powerpack (0.1.1)
+    rainbow (3.0.0)
+    rubocop (0.52.1)
+      parallel (~> 1.10)
+      parser (>= 2.4.0.2, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.9.0)
+    unicode-display_width (1.3.0)
+    utf8_converter (0.1.1)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  cute_logger
+  rubocop
+
+BUNDLED WITH
+   1.16.1
