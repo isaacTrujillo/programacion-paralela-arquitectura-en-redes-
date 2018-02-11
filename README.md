@@ -1,1 +1,1 @@
-# programaci-n-paralela-arquitectura-en-redes-
+# programacion-paralela-arquitectura-en-redes-
