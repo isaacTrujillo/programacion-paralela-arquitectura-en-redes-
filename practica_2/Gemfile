@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'sequel'
+gem 'safe_yaml'
+gem 'cute_logger'
+gem 'mysql2'
