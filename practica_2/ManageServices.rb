@@ -1,13 +1,22 @@
 require 'singleton'
 require 'safe_yaml'
+require 'sequel'
 
 class ManageServices
   include Singleton
 
-  def configure!
-    YAML.load("./config/config.yaml", :safe => true)
+  def initialize
+    configure!
   end
-end
 
-puts ManageServices.instance
-ManageServices.instance.configure!()
+  def configure!
+    data = YAML.load(File.open('./config/database.yml'), :safe => true)
+    @DB = Sequel.
+      connect(data['adapter']+'://'+data['username']+'@'+data['host']+'/'+data['database'])
+  end
+
+  def DB
+    @DB
+  end
+
+end
