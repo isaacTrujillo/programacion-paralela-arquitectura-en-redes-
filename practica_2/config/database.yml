@@ -1,0 +1,6 @@
+adapter: mysql2
+encoding: utf8
+database: practica_2
+username: root
+host: localhost
+port: 3306
