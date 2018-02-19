@@ -1,0 +1,25 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    awesome_print (1.8.0)
+    colorize (0.8.1)
+    cute_logger (0.1.9)
+      awesome_print (~> 1)
+      colorize (~> 0.8.1)
+      utf8_converter (~> 0.1)
+    mysql2 (0.4.10)
+    safe_yaml (1.0.4)
+    sequel (5.5.0)
+    utf8_converter (0.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cute_logger
+  mysql2
+  safe_yaml
+  sequel
+
+BUNDLED WITH
+   1.16.1
