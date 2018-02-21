@@ -33,9 +33,9 @@ class CRUD
   end
 end
 
-users = CRUD.new(Users)
-sites = CRUD.new(Sites)
-accounts = CRUD.new(UsersHasAccounts)
+# users = CRUD.new(Users)
+# sites = CRUD.new(Sites)
+# accounts = CRUD.new(UsersHasAccounts)
 
 # Examples of create
 # users.create({:name => 'Carlos',:userName => 'Carloselnegro',:email => 'Carlos@gmail.com'})
