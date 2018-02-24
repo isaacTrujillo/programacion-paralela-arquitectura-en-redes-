@@ -38,6 +38,8 @@ end
 # accounts = CRUD.new(UsersHasAccounts)
 
 # Examples of create
-# users.create({:name => 'Carlos',:userName => 'Carloselnegro',:email => 'Carlos@gmail.com'})
+# users.create({:name => 'Carlos',:userName => 'Carloselnegro',
+# :email => 'Carlos@gmail.com'})
 # sites.create({:name => 'youtube',:url => 'https://www.youtube.com'})
-# accounts.create({:userName => 'Carloselnegro',:password => 'Carloselnegro',:userID => 21,:siteID => 13})
+# accounts.create({:userName => 'Carloselnegro',
+# :password => 'Carloselnegro',:userID => 21,:siteID => 13})

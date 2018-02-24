@@ -7,7 +7,7 @@ def test_model(tested_class, data)
   begin
     # should fail as the object was already registered
     t.register
-  rescue => ex
+  rescue StandardError => ex
     puts "Unexpected Error: #{ex.message}"
   end
 
@@ -17,5 +17,6 @@ def test_model(tested_class, data)
 end
 
 u_id = test_model(User, ['test', 'juan perez', 'juanito@udg.mx'])
-s_id = test_model(Site, ['cutonala', 'Centro Universitario de Tonala', 'cutonala.udg.mx'])
+s_id = test_model(Site, ['cutonala', 'Centro Universitario de Tonala',
+                         'cutonala.udg.mx'])
 test_model(Authentication, [u_id, s_id, 'Th1s154StrongP4$$\/\/0rd'])

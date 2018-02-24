@@ -1,6 +1,5 @@
 # product class Sites fro factory class CRUD
 class Sites
-
   def initialize(dataset)
     @dataset = dataset
   end
