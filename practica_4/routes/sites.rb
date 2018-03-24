@@ -17,8 +17,13 @@ module Routes
       end
 
       route_param :site do
+        post do
+          Controller::Site.register([:password => params[:password],
+            :userName => params[:userName],:userID =])
+        end
 
-        post :users do
+        get :users do
+          Controller::Site.get_users_from_site(params[:site])
         end
 
       end
