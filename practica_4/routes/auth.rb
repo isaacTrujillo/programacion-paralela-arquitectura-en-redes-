@@ -4,18 +4,13 @@ require './lib/services'
 Service.configure!
 
 module Routes
+  # Routes to auth request
   class Auth < Grape::API
     namespace :sites do
       route_param :site do
         # POST /api/sites/:site/auth
         post :auth do
-          process_request do
-            user = params[:user]
-            pass = params[:pass]
-            site = params[:site]
-            auth = Controller::Auth.new(site, user, pass)
-            auth.validate
-          end
+          Controller::Auth.init(params[:site], params[:user], params[:password])
         end
       end
     end

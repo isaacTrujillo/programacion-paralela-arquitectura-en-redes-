@@ -3,8 +3,8 @@
 require 'safe_yaml'
 require 'sequel'
 
+# Class to load configuration from yaml
 class Service
-
   def self.configure!
     load_config!
   end

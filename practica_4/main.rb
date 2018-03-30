@@ -9,12 +9,14 @@ require 'grape'
 require 'json'
 require 'ant'
 
+# Main class to configure application
 class AuthServer < Grape::API
-
-  Controller::Site.register(:dataset_site, Service.database[:sites]);
-  Controller::Site.register(:dataset_users_accounts, Service.database[:user_has_accounts]);
-  Controller::Site.register(:dataset_user, Service.database[:users]);
-  Controller::Auth.register(:dataset_users_accounts, Service.database[:user_has_accounts])
+  Controller::Site.register(:dataset_site, Service.database[:sites])
+  Controller::Site.register(:dataset_users_accounts,
+                            Service.database[:user_has_accounts])
+  Controller::Site.register(:dataset_user, Service.database[:users])
+  Controller::Auth.register(:dataset_users_accounts,
+                            Service.database[:user_has_accounts])
 
   version 'v1', using: :header, vendor: 'UdeG'
   format :json
@@ -23,5 +25,4 @@ class AuthServer < Grape::API
   helpers Ant::Server::Response
   mount Routes::Auth
   mount Routes::Sites
-
 end

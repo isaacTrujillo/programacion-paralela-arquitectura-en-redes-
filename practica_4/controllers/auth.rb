@@ -4,6 +4,7 @@ require 'jwt'
 require 'bcrypt'
 
 module Controller
+  # Controller to manage authentication
   class Auth
     extend DependencyInjector
 
@@ -32,15 +33,15 @@ module Controller
           'Invalid credentials',
           'INVALID_CREDENTIALS'
         )
-        raise(ex) unless BCrypt::Password.new(get_password) == @password
+        raise(ex) unless BCrypt::Password.new(obtain_password) == @password
       end
 
-      def get_password
+      def obtain_password
         resource(:dataset_users_accounts).where(
           userID: Controller::Site.user_id(@user),
-          siteID: Controller::Site.site_id(@site)).first[:password]
+          siteID: Controller::Site.site_id(@site)
+        ).first[:password]
       end
     end
-
   end
 end

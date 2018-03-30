@@ -1,4 +1,6 @@
+
 module Controller
+  # Controller to manage users
   class User
     def initialize(dataset)
       @dataset = dataset

@@ -1,3 +1,4 @@
+# Module created to implement dependency injection pattern
 module DependencyInjector
   def resources
     @resources ||= {}
