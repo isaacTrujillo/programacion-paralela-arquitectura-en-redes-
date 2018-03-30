@@ -1,4 +1,5 @@
 require 'bcrypt'
+require './lib/dependency_injector'
 
 module Controller
   class Site
@@ -6,16 +7,16 @@ module Controller
 
     class << self
       def create(data)
-        @dataset.insert(name: data[:name], url: data[:url])
+        resource(:dataset_site).insert(name: data[:name], url: data[:url])
       end
 
       def list_all
-        @dataset.all
+        resource(:dataset_site).all
       end
 
       def get_users_from_site(site)
-        site_id = Services.database[:sites].where(name: site).first[:id]
-        dataset = Services.database[:user_has_accounts]
+        site_id = resource(:dataset_site).where(name: site).first[:id]
+        dataset = resource(:dataset_users_accounts)
                                 .join(:users, id: :userID).where(siteID: site_id)
         users = []
         dataset.each do |r|
@@ -24,28 +25,30 @@ module Controller
         users
       end
 
-      def register(reg)
+      def register_site(reg)
         password = BCrypt::Password.create(reg[:password])
-        Services.database[:users_has_accounts].insert(userName: reg[:userName],
+        resource(:dataset_users_accounts).insert(userName: reg[:userName],
                         password: password,
-                        userID: reg[:userID], siteID: reg[:siteID])
+                        userID: user_id(reg[:user]), siteID: site_id(reg[:site]))
       end
-    end
 
-    def initialize(dataset)
-      @dataset = dataset
+      def user_id(user)
+        resource(:dataset_user).where(name: user).first[:id]
+      end
+
+      def site_id(site)
+        resource(:dataset_site).where(name: site).first[:id]
+      end
+
     end
 
     def by_id(id)
-      @dataset.where(id: id).first
+      resource(:dataset_site).where(id: id).first
     end
 
     def delete(id)
-      @dataset.where(id: id).delete
+      resource(:dataset_site).where(id: id).delete
     end
 
-    def self.table
-      :sites
-    end
   end
 end
