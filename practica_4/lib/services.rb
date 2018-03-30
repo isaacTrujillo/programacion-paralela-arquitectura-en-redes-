@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'safe_yaml'
 require 'sequel'
 
 class Service
 
   def self.configure!
-    load_config
+    load_config!
   end
 
   def self.load_config!
