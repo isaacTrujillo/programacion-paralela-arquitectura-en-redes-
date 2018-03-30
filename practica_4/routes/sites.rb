@@ -1,12 +1,13 @@
 require 'grape'
-require './controller/site'
+
+require './controllers/site'
 
 module Routes
-  class Sites < Grape:API
+  class Sites < Grape::API
     namespace :sites do
       post do
         process_request do
-          Controller::Site.create(){:name => params[:name],:url => params[:url]})
+          Controller::Site.create({:name => params[:name],:url => params[:url]})
         end
       end
 
@@ -18,8 +19,12 @@ module Routes
 
       route_param :site do
         post do
-          Controller::Site.register([:password => params[:password],
-            :userName => params[:userName],:userID =])
+          Controller::Site.register_site({:password => params[:password],
+            :userName => params[:userName],:user => params[:user],:site => params[:site]})
+        end
+
+        post :aut do
+            Controller::Auth.init(params[:site],params[:user],params[:password])
         end
 
         get :users do

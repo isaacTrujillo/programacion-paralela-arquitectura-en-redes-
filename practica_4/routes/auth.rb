@@ -1,7 +1,7 @@
 require 'grape'
+require './lib/services'
 
-
-
+Service.configure!
 
 module Routes
   class Auth < Grape::API
